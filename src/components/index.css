@@ -1,0 +1,57 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+  }
+
+.card1{
+  border-radius: 10px;
+  font-family: sans-serif;
+  
+}
+
+.card1 > p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+  
+.a {
+    background-color:yellow;
+    grid-column: span 3;
+}
+  
+.b {
+    background:blue;
+  }
+  
+.c {
+    background:green;
+  }
+  
+.d {
+    background:red;
+  }
+
+.e {
+    background:yellow;
+}
+  
+.f {
+    background:blue;
+  }
+
+.g {
+    background:blue;
+    grid-column: span 4;
+}
+
+.index {
+    margin-top: 15px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-gap: 10px;
+}
