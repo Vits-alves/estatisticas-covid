@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import './index.css'
 import { dataList } from './../actions/index';
 import Grafico from './gráfico/grafico';
-import Tabela from './tabela'
+import Tabela from './tabela/tabela'
 
 interface Store {
     dataState: {
@@ -46,7 +46,7 @@ const Index = ({data= {country: '', tests: 0, recovered: 0, deaths: 0, cases: 0,
     const dispatch = useDispatch()
 
     useEffect(() => {
-        const data = dispatch(dataList())
+        dispatch(dataList())
     }, [])
 
     return (
