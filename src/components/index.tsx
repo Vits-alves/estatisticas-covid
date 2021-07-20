@@ -3,6 +3,8 @@ import { connect, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import './index.css'
 import { dataList } from './../actions/index';
+import Grafico from './gráfico/grafico';
+import Tabela from './tabela'
 
 interface Store {
     dataState: {
@@ -36,7 +38,7 @@ interface Store {
         "undefined": number,
         "activePerOneMillion": number,
         "recoveredPerOneMillion": number,
-        "criticalPerOneMillion": number}
+        "criticalPerOneMillion": number } 
     }
 }
 
@@ -92,10 +94,33 @@ const Index = ({data= {country: '', tests: 0, recovered: 0, deaths: 0, cases: 0,
                     <h2>{data.deaths}</h2>
                 </Card>
             </div> 
+            
             <div className='g'>
                 <Card>
-                    <h3>Total de Mortes</h3>    
-                    <h2>{data.deaths}</h2>
+                    <h2>Gráfico Covid 19!</h2>
+                    <Grafico
+                        titulo='Covid-19 no Brasil'
+                        totalCasos={data.cases}
+                        recuperados={data.recovered}
+                        totalMortes={data.deaths}
+                    />
+                </Card>
+            </div>
+            
+            <div className="h">
+                <Card>
+                    <CardContent>
+                        <h3>Dados registrado nos ultimos 4 dias</h3>
+                        <Tabela/> 
+                    </CardContent>
+                </Card>
+            </div>
+
+            <div className='i'>
+                <Card>
+                    <CardContent>
+                        <h1>Proteja-se use mascara!</h1>
+                    </CardContent>
                 </Card>
             </div>
         </div>

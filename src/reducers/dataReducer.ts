@@ -1,7 +1,8 @@
-import { ActionTypes, FETCH_DATA } from '../actions/actionTypes'
+import { ActionTypes, FETCH_DATA, FETCH_DATA_LIST } from '../actions/actionTypes'
 
 export const initialState = {
-    data: []
+    data: {},
+    list: {}
 }
 
 const dataReducer = (state = initialState, action: ActionTypes) => {
@@ -11,6 +12,11 @@ const dataReducer = (state = initialState, action: ActionTypes) => {
             return {
                 ...state,
                 data: action.payload
+            }
+        case FETCH_DATA_LIST:
+            return {
+                ...state,
+                list: action.payload
             }
         default:
             return state

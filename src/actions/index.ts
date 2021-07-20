@@ -1,50 +1,41 @@
 import axios from "axios";
-import React from "react";
 import { Dispatch } from "redux";
-import { ActionTypes, FETCH_DATA } from "./actionTypes";
+import { ActionTypes, FETCH_DATA, FETCH_DATA_LIST } from "./actionTypes";
 
-export interface dataCountry {
-    "updated": string,
+interface Data {
     "country": string,
-    "countryInfo": {
-        "_id": number,
-        "iso2": string,
-        "iso3": string,
-        "lat": number,
-        "long": number,
-        "flag": string
-    },
-    "cases": number,
-    "todayCases": number,
-    "deaths": number,
-    "todayDeaths": number,
-    "recovered": number,
-    "todayRecovered": number,
-    "active": number,
-    "critical": number,
-    "casesPerOneMillion": number,
-    "deathsPerOneMillion": number,
-    "tests": number,
-    "testsPerOneMillion": number,
-    "population": number,
-    "continent": string,
-    "oneCasePerPeople": number,
-    "oneDeathPerPeople": number,
-    "oneTestPerPeople": number,
-    "undefined": number,
-    "activePerOneMillion": number,
-    "recoveredPerOneMillion": number,
-    "criticalPerOneMillion": number
-}
+    "province": [
+        string
+    ],
+    "timeline": {
+        "cases": {},
+        "deaths": {},
+        "recovered": {}
+    }
+  }
 
 export const dataList = () => {
     return async (dispatch: Dispatch) => {
-        const response = await axios.get<dataCountry[]>(`https://disease.sh/v3/covid-19/countries/Brasil?yesterday=Brasil&twoDaysAgo=Brasil&strict=Brasil&allowNull=Brasil`);
-        const pais = response.data
-        console.log(pais)
+        const response = await axios.get(`https://disease.sh/v3/covid-19/countries/Brasil?yesterday=Brasil&twoDaysAgo=Brasil&strict=Brasil&allowNull=Brasil`);
         dispatch<ActionTypes>({
             type: FETCH_DATA,
             payload: response.data,
          });
     };
 }
+
+export const dataListCases = () => {
+    return async (dispatch: Dispatch) => {
+        const response = await axios.get<Data>(`https://disease.sh/v3/covid-19/historical/Brasil?lastdays=4`);
+        // Object
+        //     .entries(response.data.timeline.cases)
+        //     .forEach( ([key, value]) => {
+        //         console.log(key, value)
+        // })
+        dispatch<ActionTypes>({
+            type: FETCH_DATA_LIST,
+            payload: response.data,
+         });
+    };
+}
+

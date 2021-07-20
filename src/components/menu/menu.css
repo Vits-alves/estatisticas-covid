@@ -1,16 +1,13 @@
 .container {
-    background: #1f4037;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #99f2c8, #1f4037);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #99f2c8, #1f4037); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-    height: 60px;
+    background:rgb(173, 66, 66);
+    height: 80px;
     display: flex;
     justify-content: start;
     align-items: center;
 }
 
 .title {
-    color: rgb(66, 66, 66);
+    color: rgb(255, 255, 255);
     font-size: 1.8rem;
     font-family: serif;
     margin-left: 7px;
