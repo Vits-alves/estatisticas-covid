@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
 import React, { useEffect, FC } from "react";
 import { useDispatch, connect } from "react-redux";
-import { dataListCases } from './../actions/index';
+import { dataListCases } from '../../actions/index';
 
 interface Store {
   dataState?: {
