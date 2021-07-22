@@ -12,7 +12,7 @@ interface Props {
 const Grafico:FC<Props> = ({titulo, totalCasos, totalMortes, recuperados}) => {
     const [options, setOptions] = useState({ titulo: titulo })
     const [data, setData] = useState([
-        ['dados', 'Quantidade'],
+        ['Dado', 'Quantidade'],
         ['Total de casos', totalCasos],
         ['Recuperados', recuperados],
         ['Total de mortes', totalMortes]
@@ -22,7 +22,7 @@ const Grafico:FC<Props> = ({titulo, totalCasos, totalMortes, recuperados}) => {
         <div>
             <Chart
                 width={'500px'}
-                height={'250px'}
+                height={'300px'}
                 chartType="PieChart"
                 data={data}
                 options={options}

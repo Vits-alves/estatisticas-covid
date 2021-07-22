@@ -119,7 +119,7 @@ const Index = ({data= {country: '', tests: 0, recovered: 0, deaths: 0, cases: 0,
             <div className='i'>
                 <Card>
                     <CardContent>
-                        <h1>Proteja-se use mascara!</h1>
+                        <h1>Proteja-se, use mascara!</h1>
                     </CardContent>
                 </Card>
             </div>
